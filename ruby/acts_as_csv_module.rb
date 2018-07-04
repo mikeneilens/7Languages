@@ -28,6 +28,23 @@ module ActAsCSV
 			read
 		end
 
+		class CsvRow
+		#You need to carry the headers with each row as it needs the headers to get the data for a given heading column.
+			def initialize(array, headers)
+				@data = array
+				@headers = headers
+			end
+
+			def method_missing name, *args
+				ndx = @headers.find_index(name.to_s)
+				if ndx 
+					@data[ndx]
+				else
+					"no data for column heading"
+				end
+			end
+		end
+
 		#The each function operates ob a CsvRow object so convert the row from csv_contents into a CsvRow before applying the function using yield.
 		def each
 			@csv_contents.each { |csv_row| yield CsvRow.new(csv_row, @headers) } 
@@ -37,23 +54,6 @@ module ActAsCSV
 	end
 end
 
-class CsvRow
-	#You need to carry the headers with each row as it needs the headers to get the data for a given heading column.
-	attr_accessor :data, :headers
-	def initialize(array, headers)
-		@data = array
-		@headers = headers
-	end
-
-	def method_missing name, *args
-		ndx = @headers.find_index(name.to_s)
-		if ndx 
-			@data[ndx]
-		else
-			"no data for column heading"
-		end
-	end
-end
 
 class RubyCSV
 	include ActAsCSV

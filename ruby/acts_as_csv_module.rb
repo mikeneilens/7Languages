@@ -1,6 +1,5 @@
 module ActAsCSV
 	def self.included(base)
-		puts "adding ClassMethods to class #{base.name}"
 		base.extend ClassMethods
 	end
 
@@ -26,7 +25,6 @@ module ActAsCSV
 		attr_accessor :headers, :csv_contents
 
 		def initialize
-			puts 'executing initialize'
 			read
 		end
 
@@ -59,17 +57,13 @@ end
 
 class RubyCSV
 	include ActAsCSV
-	puts "about to execute acts_as_csv..."
 	acts_as_csv
-	puts "...done it"
 end
 
 m = RubyCSV.new
-puts "about to look at headers and csv_contents..."
 puts m.headers.inspect
 puts m.csv_contents.inspect
 
-puts "about to do each"
 puts m.each {|row| puts row.heading2}
 puts m.each {|row| puts row.heading999}
-puts "finished"
+puts "!!!"

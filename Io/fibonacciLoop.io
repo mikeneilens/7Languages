@@ -1,4 +1,4 @@
-valueAt := method (
+fib := method (
 	position := doMessage(call message argAt(0));
 	currentValue := 0;
 	nextValue := 1;
@@ -10,10 +10,10 @@ valueAt := method (
 	"The value at position #{position} is #{currentValue} " interpolate  println;
 )
 
-valueAt(1)
-valueAt(2)
-valueAt(3)
-valueAt(4)
-valueAt(5)
-valueAt(6)
-valueAt(7)
+fib(1)
+fib(2)
+fib(3)
+fib(4)
+fib(5)
+fib(6)
+fib(7)

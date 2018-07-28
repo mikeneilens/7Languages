@@ -57,8 +57,8 @@ twoDimList set(2,3,"goodbye")
 "the element at (2,3) is #{twoDimList get(2,3)}" interpolate println
 
 newTwoDimList := twoDimList transpose
-"old twoDimList #{twoDimList} " interpolate println
-"new twoDimList #{newTwoDimList} " interpolate println
 
-
+"the element at (1,0) in transposed twoDimList is #{newTwoDimList get(1,0)}" interpolate println
+"the element at (2,0) in transposed twoDimList is #{newTwoDimList get(2,0)}" interpolate println
+"the element at (3,2) in transposed twoDimList is #{newTwoDimList get(3,2)}" interpolate println
 

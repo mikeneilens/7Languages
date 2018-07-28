@@ -17,13 +17,15 @@ average := l myAverage
 "average of #{l} is #{average}" interpolate println
 
 l := list(1,2,"three",4)
-e := try( average := l myAverage;
+e := try( 
+	average := l myAverage;
 	"average of #{l} is #{average}" interpolate println
 )
 e catch(Exception, "The list #{l} had a problem. #{e error}" interpolate  println)
 
 l := list(1,2,3,4)
-e := try( average := l myAverage;
+e := try( 
+	average := l myAverage;
 	"average of #{l} is #{average}" interpolate println
 )
 e catch(Exception, "The list #{l} had a problem. #{e error}" interpolate  println)

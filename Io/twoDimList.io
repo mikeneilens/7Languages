@@ -9,16 +9,16 @@ TwoDimList dim := method(x,y,
 	 self maxY = y - 1
 )
 TwoDimList set := method(x,y,value,
-	self testRange(x,y);
+	self testRange(x,y)
 	self at(y) atPut(x, value) 
 )
 TwoDimList get := method(x,y,
-	self testRange(x,y);
+	self testRange(x,y)
 	self at(y) at(x) 
 )
 TwoDimList testRange := method(x,y,
-	if( y > self maxY, Exception raise("The Y parameter is too large. Max value for Y is #{self maxY}" interpolate),
-		if( x > self maxX, Exception raise("The X parameter is too large. Max value for X is #{self maxX}" interpolate)
+	if( y > self maxY, Exception raise("The Y parameter (#{y}) is too large. Max value for Y is #{self maxY}" interpolate),
+		if( x > self maxX, Exception raise("The X parameter (#{x}) is too large. Max value for X is #{self maxX}" interpolate)
 		)
 	)
 )

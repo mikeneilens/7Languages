@@ -1,9 +1,11 @@
 Builder := Object clone
 Builder indent := 0
 Builder textForIndents := "    "
+
 Builder indentText := method(
 	indentedspace := textForIndents repeated(indent)
 )
+
 Builder forward := method(
 	writeln( indentText, "<", call message name, ">")	
 	indent = indent + 1
@@ -15,6 +17,7 @@ Builder forward := method(
 	indent = indent - 1
 	writeln(indentText, "</", call message name, ">")
 )
+
 Builder ul(
 	li("Io"),
 	li("Lua"),

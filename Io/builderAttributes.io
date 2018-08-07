@@ -21,7 +21,9 @@ Builder indentText := method(
 )
 
 Builder forward := method(
+	
 	writeCloseTagIfTagIsOpen
+	
 	write( indentText, openTag, call message name)
 	indentLevel = indentLevel + 1
 	call message arguments foreach(
@@ -41,10 +43,11 @@ Builder forward := method(
 	writeln(indentText, "</", call message name, ">")
 )
 
+#convert a map to a string containing XML attributes
 Map asAttributes := method(
 	attributes := "" asMutable
 	foreach(k,v,
-		attributes = attributes .. k .. "=" .. v .. ","
+		attributes = attributes .. "\"".. k .. "\"=" .. "\"" .. v .. "\","
 	)
 	attributes asMutable removeSuffix(",")
 )

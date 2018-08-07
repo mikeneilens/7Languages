@@ -54,13 +54,14 @@ Map asAttributes := method(
 
 testMap := Map clone
 testMap atPut("key1","value1")
-testMap atPut("key2","value2")
+testMap atPut("class","value2")
 
 testMap asAttributes println
 
-Builder ul(
+Builder div(testMap, ul(
 	li("Io"),
 	li("Lua", "cobol"),
 	li(  p(testMap, "Javascript") )
+	)
 )
 

@@ -24,3 +24,6 @@ myList3 := [1,"2 + 3",3,4]
 myList3 println  
 "Element at position 1 has type #{myList3 at(1) type}" interpolate println
 
+myList4 := squareBrackets(5,6,7,8)
+"squareBrackets(5,6,7,8) is evaluatedvas" print
+myList4 println

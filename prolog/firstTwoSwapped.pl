@@ -1,0 +1,1 @@
+firstTwoSwapped([X|[Y|Z]], [Y|[X|Z]] ).

@@ -1,3 +1,4 @@
+
 trait AbleToCensor[T] {
     val theWord:T
     def censor(censorList:Map[T,T]) :T = {
@@ -22,3 +23,18 @@ val censorData = Map("Shoot" -> "Pucky", "Darn"->"Beans")
 
 listofWords.map((censorableWord)=> censorableWord.censor(censorData) )
 
+//takes a list of any type and converts into a mutable hashmap of type:type
+//this would be used to take the list created by reading a file into the list of words
+def listToMap[T](m:Map[T,T], l:List[T]) :Map[T,T] = {
+  val newKey = l.head
+  val newValue = l.tail.head
+  val newMap =  m ++ Map(newKey -> newValue)
+  val remainingList = l.tail.tail
+  if (remainingList.isEmpty) {
+      newMap
+  }  else {
+      listToMap(newMap ,remainingList)
+  }
+}
+val l = List("Shoot","Pucky","Darn","Beans")
+listToMap(Map[String,String](),l)

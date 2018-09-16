@@ -45,4 +45,10 @@ import scala.collection.mutable.ListBuffer //Scala mutable list
 //You cannot create a mutable list of animals using a list of dogs. i.e. invariant
 val dogMutableList:ListBuffer[Dog] = ListBuffer(fido, marmaduke)
 //val mutablelist:ListBuffer[Animal] = dogMutableList
-
+//This is OK
+val mutablelist:ListBuffer[Dog] = dogMutableList
+mutablelist += new Dog(4,"Scooby")
+mutablelist(2).name //this is Scooby
+dogMutableList(2).name //this is also Scooby as Lists are reference types.
+// This is why mutable lists are invariant as you could add a sub type of animal
+// to the list which wasn't a dog which would add the wrong type to the dogMutableList

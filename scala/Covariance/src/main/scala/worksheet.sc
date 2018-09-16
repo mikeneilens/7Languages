@@ -29,7 +29,7 @@ val marmaduke = new GreatDane(7,"Marmaduke")
 //How do I to get the age of Fido
 getAnimalAge(fido) // works because Fido is an Animal. ie the argument can be a super type (contravariant)
 
-//getGreatDaneAge(fido) // fails because Fido is a Dog but not necessarily a GeatDane
+//getGreatDaneAge(fido) // fails because Fido is a Dog but not necessarily a GreatDane
 
 //How do I create a dog?
 val myDog:Dog = createGreatDane() //this works because a GreatDane is a kind of Dog. ie the result can be a sub type (covariant)
@@ -41,7 +41,8 @@ val list:List[Animal] = dogList
 list(1) // element 1 is still a GreatDane
 
 import scala.collection.mutable.ListBuffer //Scala mutable list
-//You can not create a mutable list of animals using a list of dogs. i.e. invariant
+
+//You cannot create a mutable list of animals using a list of dogs. i.e. invariant
 val dogMutableList:ListBuffer[Dog] = ListBuffer(fido, marmaduke)
 //val mutablelist:ListBuffer[Animal] = dogMutableList
 

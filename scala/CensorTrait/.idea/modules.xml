@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/censortrait.iml" filepath="$PROJECT_DIR$/.idea/modules/censortrait.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CensorTrait.iml" filepath="$PROJECT_DIR$/.idea/modules/CensorTrait.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/censortrait-build.iml" filepath="$PROJECT_DIR$/.idea/modules/censortrait-build.iml" />
     </modules>
   </component>

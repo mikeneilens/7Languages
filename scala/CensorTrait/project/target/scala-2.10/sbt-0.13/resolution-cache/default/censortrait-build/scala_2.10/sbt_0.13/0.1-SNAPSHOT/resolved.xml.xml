@@ -4,7 +4,7 @@
 		module="censortrait-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20180911202302"
+		publication="20180929174032"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

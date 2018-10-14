@@ -6009,7 +6009,7 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.7!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 2708ms :: artifacts dl 68ms
+[debug] :: resolution report :: resolve 3897ms :: artifacts dl 143ms
 [debug] 	report for default#covariance-build;0.1-SNAPSHOT compile produced in /Users/michaelneilens/Documents/GitHub/7Languages/scala/Covariance/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-covariance-build-compile.xml
 [debug] 	report for default#covariance-build;0.1-SNAPSHOT runtime produced in /Users/michaelneilens/Documents/GitHub/7Languages/scala/Covariance/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-covariance-build-runtime.xml
 [debug] 	report for default#covariance-build;0.1-SNAPSHOT test produced in /Users/michaelneilens/Documents/GitHub/7Languages/scala/Covariance/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-covariance-build-test.xml
@@ -6023,5 +6023,5 @@
 [debug] 	report for default#covariance-build;0.1-SNAPSHOT docs produced in /Users/michaelneilens/Documents/GitHub/7Languages/scala/Covariance/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-covariance-build-docs.xml
 [debug] 	report for default#covariance-build;0.1-SNAPSHOT pom produced in /Users/michaelneilens/Documents/GitHub/7Languages/scala/Covariance/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-covariance-build-pom.xml
 [debug] 	report for default#covariance-build;0.1-SNAPSHOT scala-tool produced in /Users/michaelneilens/Documents/GitHub/7Languages/scala/Covariance/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-covariance-build-scala-tool.xml
-[debug] 	resolve done (2708ms resolve - 68ms download)
+[debug] 	resolve done (3897ms resolve - 143ms download)
 [info] Done updating.

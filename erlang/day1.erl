@@ -3,7 +3,7 @@
 -export([count_to_ten/0]).
 -export([process_response/1]).
 
-%Exercise 1
+%Exercise 1 - n.b. a space is character 32.
 word_count(String) -> word_count(0,32,String).
 
 word_count(Count, _, String) when String == [] -> Count;

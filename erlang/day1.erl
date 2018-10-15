@@ -6,15 +6,10 @@
 %Exercise 1 - n.b. a space is character 32.
 word_count(String) -> word_count(0,32,String).
 
-word_count(Count, _, String) when String == [] -> Count;
-word_count(Count, LastChar, String) -> 
-	[Head | Tail] = String,
-	case LastChar  of
-		32  when Head /= 32 -> 
-			word_count(Count + 1, Head, Tail);
-		_ -> 
-			word_count(Count, Head, Tail)
-	end.	
+word_count(Count, _, [])  -> Count;
+word_count(Count, 32, [32 | Tail]) -> word_count(Count, 32, Tail);
+word_count(Count, 32, [Head | Tail]) -> word_count(Count +1, Head, Tail);
+word_count(Count, _, [Head | Tail]) -> 	word_count(Count , Head, Tail).
 
 %Exercise 2
 count_to_ten() -> count_to_ten(0).

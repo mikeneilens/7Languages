@@ -18,10 +18,5 @@ count_to_ten(Count) when Count == 10 -> "Finished";
 count_to_ten(Count) -> count_to_ten(Count + 1).
 
 %exercise 3
-process_response(Response) -> 
-	case Response of 
-		success -> 
-			"Success";
-		{error, Message} ->
-			Message
-	end.
+process_response(success) -> "Success";
+process_response({error, Message}) -> Message.

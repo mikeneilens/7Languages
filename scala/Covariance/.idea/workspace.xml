@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f79696ba-f7be-4c7e-9e4a-1bf85c3ace85" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../erlang/day1.beam" beforeDir="false" afterPath="$PROJECT_DIR$/../../erlang/day1.beam" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../erlang/day1.erl" beforeDir="false" afterPath="$PROJECT_DIR$/../../erlang/day1.erl" afterDir="false" />
-    </list>
+    <list default="true" id="f79696ba-f7be-4c7e-9e4a-1bf85c3ace85" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -24,7 +21,7 @@
     <session id="1081860770">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.5" value="1" />
@@ -293,7 +290,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15486111" />
       <window_info id="Structure" order="1" weight="0.25" />

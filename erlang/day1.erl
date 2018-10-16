@@ -3,12 +3,13 @@
 -export([count_to_ten/0]).
 -export([process_response/1]).
 
-%Exercise 1 - n.b. a space is character 32.
+%Exercise 1 - n.b. a space is character 32. 
 word_count(String) -> word_count(0,32,String).
 
+%Signature is word_count(Count:Int, PreviousHead:String, RemainderOfTheList:List<String>)->Int
 word_count(Count, _, [])  -> Count;
 word_count(Count, 32, [32 | Tail]) -> word_count(Count, 32, Tail);
-word_count(Count, 32, [Head | Tail]) -> word_count(Count +1, Head, Tail);
+word_count(Count, 32, [Head | Tail]) -> word_count(Count + 1, Head, Tail);
 word_count(Count, _, [Head | Tail]) -> 	word_count(Count , Head, Tail).
 
 %Exercise 2

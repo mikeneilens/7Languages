@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f0dc8d3-7c66-4351-9514-ffae30cdde9e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../erlang/day1.beam" beforeDir="false" afterPath="$PROJECT_DIR$/../../erlang/day1.beam" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../erlang/day1.erl" beforeDir="false" afterPath="$PROJECT_DIR$/../../erlang/day1.erl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Covariance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Covariance/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,6 +23,7 @@
     <session id="476563933">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.opened" value="1" />
         </counts>

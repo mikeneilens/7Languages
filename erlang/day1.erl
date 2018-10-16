@@ -16,7 +16,7 @@ word_count(Count, _, [Head | Tail]) -> 	word_count(Count , Head, Tail).
 count_to_ten() -> count_to_ten(0).
 
 count_to_ten(10)  -> "Finished";
-count_to_ten(Count) -> count_to_ten(Count + 1).
+count_to_ten(Count) -> io:fwrite(integer_to_list(Count) ++ " still counting... \n" ),  count_to_ten(Count + 1).
 
 %exercise 3
 process_response(success) -> "Success";

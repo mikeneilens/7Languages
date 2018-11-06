@@ -17,26 +17,27 @@ loop() ->
 			loop()
 	end.
 
-	translate(To, Word) -> 
-		To ! {self(), Word}, 
-		receive 
-			Translation -> Translation
-		end.
+translate(To, Word) -> 
+	To ! {self(), Word}, 
+	receive 
+		Translation -> Translation
+	end.
 
-	monitor() ->
-		process_flag(trap_exit, true),
-		receive
-			new ->
-				io:format("Creating a new translator. ~n"),
-				register(translator, spawn_link(fun loop/0)),
-				monitor();
-			{'EXIT', From, Reason} ->
-				io:format("The translator ~p just died with reason ~p",[From,Reason]),
-				self() ! new,
-				monitor()
-		end.
+%This is the new code
+monitor() ->
+	process_flag(trap_exit, true),
+	receive
+		new ->
+			io:format("Creating a new translator. ~n"),				
+			register(translator, spawn_link(fun loop/0)),
+			monitor();
+		{'EXIT', From, Reason} ->
+			io:format("The translator ~p just died with reason ~p",[From,Reason]),
+			self() ! new,
+			monitor()
+	end.
 
-		% Translator = spawn(fun day3_translate:monitor/0).
-		% Translate ! new.
-		% translator ! "casa". -- should return "house"
-		% translator ! "suicidio" -- should kill the translator and monitor create a new one.
+	% Translator = spawn(fun day3_translate:monitor/0).
+	% Translator ! new.
+	% day3_translate(translator, "casa"). -- should return "house"
+	% day3_translate:translate(translator,  "suicidio"). -- should kill the translator and monitor create a new one.

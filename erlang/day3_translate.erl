@@ -35,3 +35,8 @@ loop() ->
 				self() ! new,
 				monitor()
 		end.
+
+		% Translator = spawn(fun day3_translate:monitor/0).
+		% Translate ! new.
+		% translator ! "casa". -- should return "house"
+		% translator ! "suicidio" -- should kill the translator and monitor create a new one.

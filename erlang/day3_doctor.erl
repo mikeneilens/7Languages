@@ -31,3 +31,9 @@ monitor() ->
 				self() ! new,
 				monitor()
 	end.
+
+	% Doctor = spawn(fun day3_doctor:monitor/0).
+	% Doctor ! new.
+	% revolver ! 1. -- does nothing.
+	% revolver ! 3. -- kills the revolver, which restarts.
+	% doctor ! suicide -- kills the doctor loop.

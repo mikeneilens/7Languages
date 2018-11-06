@@ -3,7 +3,6 @@
 
 loop() -> 
 	process_flag(trap_exit, true),
-	link(self()),
 	receive
 		new ->
 			io:format("Creating and monitoring process. ~n"),

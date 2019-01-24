@@ -12,7 +12,7 @@
                              )
  )
 
-;Alternate approach to collection-type using pipe makes it almost readable!
+;Alternate approach to collection-type using left-to-right operator makes it almost readable!
 (defn colTypeName [col] (type col))
 
 (defn collection-type [colTypeName]    

@@ -25,7 +25,9 @@
 
 ;Compass
 (def directions [:north :south :east :west])
+
 (defn turn [base amount] (rem (+ base amount) (count directions)))
+
 (defprotocol Compass 
   (direction [c])
   (left [c])
@@ -38,3 +40,18 @@
   (right [_] (SimpleCompass. (turn bearing 1)))
   Object 
   (toString [this] (str "/" (direction this) "/")))
+
+;dayt 2 exercises
+(defmacro unless [test body elseBody] (list 'if (list 'not test) body elseBody))
+(unless false (println "danger danger") (println "OK"))
+(unless true (println "danger danger") (println "OK"))
+
+(defprotocol Dog
+  (sayName[c] ))
+(defrecord Labrador [name] 
+  Dog
+  (sayName[_] (str "wuff, I am called " name)))
+(def jimmyTheDog (Labrador. "jimmy"))
+(sayName jimmyTheDog)
+
+

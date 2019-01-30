@@ -48,3 +48,19 @@ ice [x]
 (defn debit2[accountVector position value]
   (let [account (accountVector position)]
     (debit account value)))
+;day 3 accont using map
+(def acc1 {:account 1 :balance (ref 0)})
+(def acc2 {:account 1 :balance (ref 0)})
+(def acc3 {:account 1 :balance (ref 0)})
+(def accs [acc1 acc2 acc3])
+;function to get the accountNo for an account
+(defn accountNo [account] (let [{thisAccountNo :account} account] thisAccountNo))
+;function to get an account from the vector
+(defn getAccount [inputAccounts inputAccountNo] 
+  (let [account (filter #(= inputAccountNo (accountNo %)) inputAccounts )] 
+    account ))
+;credit an account
+(defn credit [account value] (let [{balance :balance} account] (dosync (ref-set balance (+ @balance value)) )))
+;credit an account in the vector
+(defn creditAccount [inputAccounts inputAccountNo] 
+  (let [account (getAccount inputAccounts inputAccountNo)] (credit account 1) ))

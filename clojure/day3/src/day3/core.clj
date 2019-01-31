@@ -50,8 +50,8 @@ ice [x]
     (debit account value)))
 ;day 3 accont using map
 (def acc1 {:account 1 :balance (ref 0)})
-(def acc2 {:account 1 :balance (ref 0)})
-(def acc3 {:account 1 :balance (ref 0)})
+(def acc2 {:account 2 :balance (ref 0)})
+(def acc3 {:account 3 :balance (ref 0)})
 (def accs [acc1 acc2 acc3])
 ;function to get the accountNo for an account
 (defn accountNo [account] (let [{thisAccountNo :account} account] thisAccountNo))

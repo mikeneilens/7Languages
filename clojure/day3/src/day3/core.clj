@@ -57,10 +57,16 @@ ice [x]
 (defn accountNo [account] (let [{thisAccountNo :account} account] thisAccountNo))
 ;function to get an account from the vector
 (defn getAccount [inputAccounts inputAccountNo] 
-  (let [account (filter #(= inputAccountNo (accountNo %)) inputAccounts )] 
+  (let [account (first (filter #(= inputAccountNo (accountNo %)) inputAccounts ))] 
     account ))
-;credit an account
+;function to credit an account
 (defn credit [account value] (let [{balance :balance} account] (dosync (ref-set balance (+ @balance value)) )))
-;credit an account in the vector
-(defn creditAccount [inputAccounts inputAccountNo] 
-  (let [account (getAccount inputAccounts inputAccountNo)] (credit account 1) ))
+(defn debit [account value] (credit account (- 0 value)))
+;credit an account in the vector - provide function to credit or debit
+(defn creditAccount [inputAccounts inputAccountNo f val] 
+  (let [account (getAccount inputAccounts inputAccountNo)] (f account val) ))
+
+(creditAccount accs 1 credit 2)
+accs
+(creditAccount accs 1 debit 3)
+accs

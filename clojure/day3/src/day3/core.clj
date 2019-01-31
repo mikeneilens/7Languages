@@ -40,27 +40,52 @@ ice [x]
 (def account3 (ref 0))
 (def accounts [account1 account2 account3])
 (defn credit[account value] (dosync (ref-set account (+ @account value))))
-(defn debit[account value] (dosync (ref-set account (- @account value))))
-;functions operating on the vector instead of each ref
-(defn credit2[accountVector position value]
-  (let [account (accountVector position)]
-    (credit account value)))
-(defn debit2[accountVector position value]
-  (let [account (accountVector position)]
-    (debit account value)))
+(defn debit [account value] (credit account (- 0 value)))
+
+(defn changeBalance[accounts position changeFunction value]
+  (let [account (accounts position)]
+    (changeFunction account value)))
+
+;tests!
+(changeBalance accounts 1 credit 2)
+(def balance (accounts 1))
+(str "balance is £"  @balance)
+
+(changeBalance accounts 1 debit 3)
+(def balance (accounts 1))
+(str "balance is £"  @balance)
+
 ;day 3 accont using map
-(def acc1 {:account 1 :balance (ref 0)})
-(def acc2 {:account 1 :balance (ref 0)})
-(def acc3 {:account 1 :balance (ref 0)})
-(def accs [acc1 acc2 acc3])
+(def account1 {:accountNo 1 :balance (ref 0)})
+(def account2 {:accountNo 2 :balance (ref 0)})
+(def account3 {:accountNo 3 :balance (ref 0)})
+(def accounts [account1 account2 account3])
+(defn printAccount[account] 
+  (let [{accountNo :accountNo balance :balance} account] 
+    (str "AccountNo: " accountNo " Balance = £" @balance   ) )  )
+
 ;function to get the accountNo for an account
-(defn accountNo [account] (let [{thisAccountNo :account} account] thisAccountNo))
+(defn getAccountNo [account] (let [{accountNo :accountNo} account] accountNo))
+
 ;function to get an account from the vector
-(defn getAccount [inputAccounts inputAccountNo] 
-  (let [account (filter #(= inputAccountNo (accountNo %)) inputAccounts )] 
+(defn getAccount [accounts accountNo] 
+  (let [account (first (filter #(= accountNo (getAccountNo %)) accounts ))] 
     account ))
-;credit an account
-(defn credit [account value] (let [{balance :balance} account] (dosync (ref-set balance (+ @balance value)) )))
-;credit an account in the vector
-(defn creditAccount [inputAccounts inputAccountNo] 
-  (let [account (getAccount inputAccounts inputAccountNo)] (credit account 1) ))
+
+;function to credit an account
+(defn credit [account value] 
+  (let [{balance :balance} account] 
+    (dosync (ref-set balance (+ @balance value)) )))
+(defn debit [account value] (credit account (- 0 value)))
+
+;change the balance of an account - provide function to credit or debit
+(defn changeBalance [accounts accountNo changeFunction amount] 
+  (let [account (getAccount accounts accountNo)] 
+    (if account (changeFunction account amount) (str "AccountNo " accountNo " not found") )))
+
+;tests!
+(changeBalance accounts 1 credit 2)
+(printAccount  (getAccount accounts 1) )
+(changeBalance accounts 1 debit 3)
+(printAccount  (getAccount accounts 1) )
+(changeBalance accounts 4 debit 3)

@@ -89,26 +89,3 @@ ice [x]
 (changeBalance accounts 1 debit 3)
 (printAccount  (getAccount accounts 1) )
 (changeBalance accounts 4 debit 3)
-
-;day3 part 2
-(def queue (agent 0))
-(def chair (agent 0))
-
-(defn readQueue []
-  (send chair inc)
-  (send queue dec)
-)
-(defn cut-hair [] (do 
-   (readQueue)
-    (Thread/sleep 3000)
-    (send chair dec)
-    (println "finished")
-    (if (> @queue 0) cut-hair)
-   ) 
-)
-
-(defn queue-watcher [key ref old-val new-val] 
-(if (and (= @chair 0) (> new-val 0) ) (cut-hair)  )  )
-
-(add-watch queue :queue queue-watcher)
-(send queue inc)
